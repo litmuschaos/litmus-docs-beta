@@ -22,7 +22,7 @@ Installing Litmus in cluster mode gives Litmus access to cluster wide resources.
 
 ## Installation
 
-Installation of Litmus can be done using either of the below methods
+Installation of Litmus can be done using either of the below methods;
 
 - [Helm3](#helm_install) chart or
 - [Kubectl](#kubectl_install) yaml spec file
@@ -48,7 +48,7 @@ litmuschaos     https://litmuschaos.github.io/litmus-helm/
 
 #### Step-2: Create the litmus namespace
 
-- The litmus infra components will be placed in this namespace.
+The litmus infra components will be placed in this namespace.
 
 **Note**: The chaos control plane can be placed in any namespace, though it is typically placed in "litmus".
 

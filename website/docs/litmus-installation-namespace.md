@@ -16,7 +16,7 @@ Installing Litmus in namespace mode limits Litmus access to a particluar namespa
 
 - Kubernetes 1.15 or later.
   ​
-- Recommend to have a Persistent volume(PV) of 20GB, You can start with 1GB for test purposes as well. This PV is used as persistent storage to store the chaos config and chaos-metrics in the Portal. By default, litmus would use the default storage class to allocate the PV.
+- It is Recommended to have a Persistent volume(PV) of 20GB, You can start with 1GB for test purposes as well. This PV is used as persistent storage to store the chaos config and chaos-metrics in the Portal. By default, litmus would use the default storage class to allocate the PV.
 
 - Helm3 or Kubectl
 
@@ -48,7 +48,7 @@ litmuschaos     https://litmuschaos.github.io/litmus-helm/
 
 #### Step-2: Create the litmus namespace
 
-- The litmus infra components will be placed in this namespace.
+The litmus infra components will be placed in this namespace.
 
 **Note**: The chaos control plane can be placed in any namespace, though it is typically placed in "litmus".
 
@@ -83,7 +83,7 @@ Visit https://docs.litmuschaos.io/docs/getstarted/ to find more info.
 
 > **Note:** Litmus uses Kubernetes CRDs to define chaos intent. Helm3 handles CRDs better than Helm2. Before you start running a chaos experiment, verify if Litmus is installed correctly.
 
-- The cluster-admin or an equivalent user with the right permissions are required to install them CRDs upfront. To apply LitmusCRDs:
+The cluster-admin or an equivalent user with the right permissions are required to install the CRDs upfront. To apply LitmusCRDs, run the command below.
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/litmuschaos/litmus/master/litmus-portal/litmus-portal-crds.yml
@@ -106,7 +106,7 @@ customresourcedefinition.apiextensions.k8s.io/eventtrackerpolicies.eventtracker.
 
 #### **Install Litmus**
 
-- Set the namespace on which you want to install litmus.
+Set the namespace on which you want to install litmus.
 
 ```bash
 export LITMUS_PORTAL_NAMESPACE="<namespace>"
@@ -116,7 +116,7 @@ kubectl get ns ${LITMUS_PORTAL_NAMESPACE}
 kubectl create ns ${LITMUS_PORTAL_NAMESPACE}
 ```
 
-- The cluster-admin or an equivalent user with the right permissions are required to install them CRDs upfront. To apply LitmusCRDs:
+The cluster-admin or an equivalent user with the right permissions are required to install them CRDs upfront. To apply LitmusCRDs, run:
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/litmuschaos/litmus/master/litmus-portal/litmus-portal-crds.yml
@@ -135,7 +135,7 @@ customresourcedefinition.apiextensions.k8s.io/chaosresults.litmuschaos.io create
 customresourcedefinition.apiextensions.k8s.io/eventtrackerpolicies.eventtracker.litmuschaos.io created
 ```
 
-- Replace namespace with the target namespace.
+Replace namespace with the target namespace.
 
 ```bash
 export LITMUS_PORTAL_NAMESPACE="<namespace>"
@@ -164,7 +164,7 @@ service/mongo-service created
 
 **Verify if the frontend, server, and database pods are running**
 
-- Check the litmus CRDs:
+Check the litmus CRDs:
 
   ```bash
   $ kubectl get crds | grep litmus
@@ -175,7 +175,7 @@ service/mongo-service created
 
   ```
 
-- Check the pods in litmus namespace:
+Check the pods in litmus namespace:
 
   ```bash
   $ kubectl get pods -n litmus
@@ -186,7 +186,7 @@ service/mongo-service created
   mongo-0                                 1/1     Running 0         6m16s
   ```
 
-- Check the services running in litmus namespace:
+Check the services running in litmus namespace:
 
   ```bash
   $ kubectl get svc -n litmus
